@@ -42,3 +42,5 @@ Responsável por: (Descrever função da classe)
 - [] O trabalho está funcionando corretamente?
 - [] O trabalho está completo?
 - [✅] O trabalho é original e não a cópia de um trabalho de um colega?
+
+## 📎 Observações Finais
