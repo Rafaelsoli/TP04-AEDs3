@@ -12,23 +12,6 @@
 
 ## 🧱 Estrutura do Projeto
 
-### 📂 Classes Criadas e seus Principais Métodos
-
-└── 📁TP04-AEDS3
- └── 📁TabelaHashExtensivel
-   └── 📁aed3
-    └── HashExtensivel.java
-    └── RegistroHashExtensivel.java
-   └── Main.java 
-   └── ParNumero.java 
- └── 📁Visualizacao
-   └── index.html
-   └── style.css
-   └── script.js
-   └── data.json
-└── commitar.bat
-└── LICENSE
-└── README.md
 
 
 ## 🧪 Experiência
