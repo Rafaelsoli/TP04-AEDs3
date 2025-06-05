@@ -3,7 +3,7 @@
 > 🧠 **Algoritimos e Estrutura de Dados III** — Trabalho Prático 04
 
 ## 📌 O que o trabalho de vocês faz?
-> 
+> Esse trabalho é uma vizualização interativa web de uma tabela tabela hash extensível... 
 
 ## 👨‍💻 Nomes dos Participantes
 - Bruno Rafael Santos Oliveira
@@ -14,11 +14,21 @@
 
 ### 📂 Classes Criadas e seus Principais Métodos
 
-#### `ClasseExemplo1`
-Responsável por: (Descrever função da classe)  
-**Principais métodos:**
-- `metodo1()` – Faz tal coisa...
-- `metodo2()` – Realiza tal operação...
+└── 📁TP04-AEDS3
+   └── 📁TabelaHashExtensivel
+      └── 📁aed3
+          └── HashExtensivel.java
+   	      └── RegistroHashExtensivel.java
+      └── Main.java 
+      └── ParNumero.java 
+   └── 📁Visualizacao
+          └── index.html
+          └── style.css
+          └── script.js
+          └── data.json
+└── commitar.bat
+└── LICENSE
+└── README.md
 
 
 ## 🧪 Experiência
