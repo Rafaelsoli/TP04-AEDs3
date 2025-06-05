@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.File;
 import aed3.HashExtensivel;
-import aed3.ParNumero;
+
 
 public class Main {
     public static void main(String[] args) {

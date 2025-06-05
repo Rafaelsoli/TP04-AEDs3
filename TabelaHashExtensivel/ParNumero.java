@@ -1,4 +1,5 @@
-package aed3;
+import aed3.HashExtensivel;
+import aed3.RegistroHashExtensivel;
 
 import java.io.*;
 
