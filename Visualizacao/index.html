@@ -15,10 +15,21 @@
       <!-- renderização de buckets -->
     </div>
 
-    <div class="inserir-section">
+    <div class="setup-section">
+      <input type="number" id="capacidade-input" placeholder="Capacidade do bucket" />
+      <button onclick="iniciar()">Iniciar</button>
+    </div>
+
+
+    <div class="inserir-section" style="display: none;" id="inserir-container">
       <input type="number" id="numero-input" placeholder="Digite um número" />
       <button onclick="inserirNumero()">Inserir</button>
     </div>
+
+    <div id="resetar-container" style="margin-top: 20px; display: none;">
+      <button onclick="resetar()">Reiniciar Tabela</button>
+    </div>
+
   </div>
 
   <script src="script.js"></script>

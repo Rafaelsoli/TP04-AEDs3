@@ -109,3 +109,31 @@ h1 {
 .inserir-section button:hover {
   background-color: #0056b3;
 }
+
+.setup-section {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.setup-section input {
+  padding: 8px;
+  font-size: 16px;
+  width: 220px;
+}
+
+.setup-section button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.setup-section button:hover {
+  background-color: #218838;
+}
+
