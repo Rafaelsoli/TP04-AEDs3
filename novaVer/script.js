@@ -147,14 +147,21 @@ function exibirDeFormaBurra ()
     {
         tabela.mostrar ();
 
+        // Isso vem antes da tabela (fixo)
         let saida = "Profundidade global: " + tabela.p + "\n";
+
+        
 
         tabela.diretorio.forEach((bucket, i) => 
         {
+            // Tabela em si
             saida += `Dir[${i.toString(2).padStart(tabela.p, '0')}] → ${JSON.stringify(bucket.itens)}\n`;
         });
 
-        document.getElementById("saida").innerText = saida;
+        // Algo a ser anexado depois da tabela
+        saida += "";
+
+        document.getElementById("saida").innerHTML = saida;
     }
     else 
     {
