@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Tabela Hash Extensível</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Tabela Hash</h1>
-
-    <button onclick="criarTabela (); exibirDeFormaBurra ();">Crie a tabela</button>
-    <button onclick="adicionarNaTabela (); exibirDeFormaBurra ();">Adicionar a tabela</button>
-
+    <h1 class="titulo">Tabela Hash</h1>
+    <div class="botoes-container">
+        <button class="botao-estilizado" onclick="criarTabela (); exibirDeFormaBurra ();">Crie a tabela</button>
+        <button class="botao-estilizado" onclick="adicionarNaTabela (); exibirDeFormaBurra ();">Adicionar a tabela</button>
+    </div>
     <pre id="saida"></pre>
 
     <script src="script.js"> </script>
