@@ -1,9 +1,15 @@
 
+body {
+  background-image: url('https://r4.wallpaperflare.com/wallpaper/903/77/147/digital-art-horizon-japanese-landscape-wallpaper-195028cd714aad5bd617c8df4041a65d.jpg'); /* gradiente azul */
+}
+
 .titulo {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 20px;
   text-align: center;
+    font-size: 3.0em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e8ebee;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .botoes-container {
@@ -15,7 +21,7 @@
 
 
 .botao-estilizado {
-  background-color: #4CAF50;
+  background-color: #ab3232;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -26,13 +32,14 @@
 }
 
 .botao-estilizado:hover {
-  background-color: #45a049;
+  background-color: #9c2b2b;
   transform: scale(1.05);
 }
 
 .botao-estilizado:active {
   transform: scale(0.95);
 }
+
 
 .tabela-burra {
   display: flex;
@@ -51,4 +58,41 @@
   text-align: left;
   white-space: pre-wrap;
   border: 1px solid #ddd;
+}
+
+#prof {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: #2c3e50;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.tupla {
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+    width: fit-content;
+    min-width: 280px;
+    text-align: left;
+}
+
+.dir {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.bucket{
+    background-color: #ba3737;
+    color: black;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-left: 8px;
 }
