@@ -148,14 +148,15 @@ function exibirDeFormaBurra ()
         tabela.mostrar ();
 
         // Isso vem antes da tabela (fixo)
-        let saida = "Profundidade global: " + tabela.p + "\n";
-
-        
+        let saida = "<p id='prof'>Profundidade global: " + tabela.p + "</p>";
 
         tabela.diretorio.forEach((bucket, i) => 
         {
             // Tabela em si
-            saida += `Dir[${i.toString(2).padStart(tabela.p, '0')}] → ${JSON.stringify(bucket.itens)}\n`;
+            saida += `<p class='tupla'> <span class="dir">Dir[${i.toString(2).padStart(tabela.p, '0')}]</span>` +
+            
+            
+            ` → <span class="bucket">${JSON.stringify(bucket.itens)}</span></p>`;
         });
 
         // Algo a ser anexado depois da tabela
