@@ -1,9 +1,3 @@
-.botoes-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
 
 .titulo {
   font-size: 32px;
@@ -11,6 +5,14 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.botoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
 
 .botao-estilizado {
   background-color: #4CAF50;
@@ -30,4 +32,23 @@
 
 .botao-estilizado:active {
   transform: scale(0.95);
+}
+
+.tabela-burra {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.saida-burra {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  text-align: left;
+  white-space: pre-wrap;
+  border: 1px solid #ddd;
 }
