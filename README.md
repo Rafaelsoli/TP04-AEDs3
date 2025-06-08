@@ -20,23 +20,23 @@
 ## 🧪 Experiência
 
 ### ✅ Vocês implementaram todos os requisitos?
-- [] 
+- [✅] Sim, nós implementamos todos os requistios.
 
 ### 🧩 Houve alguma operação mais difícil?
-- [] 
+- [✅] Sim, a operação que se mostrou mais desafiadora foi a divisão dos buckets. Esse processo exige uma atenção especial à forma como os dados são redistribuídos entre os buckets após a divisão, garantindo que a estrutura da tabela hash extensível seja mantida corretamente.
 
 ### 🧱 Vocês enfrentaram algum desafio na implementação?
-- [] 
+- [✅] Com certeza, enfrentamos desafios significativos durante a implementação, especialmente relacionados à divisão dos buckets. Foi necessário um cuidado extra para evitar erros que pudessem comprometer a integridade da estrutura, como a duplicação ou perda de dados.
 
 ### 🎯 Os resultados foram alcançados?
-- [] 
+- [✅] Sim, todos os objetivos do projeto foram alcançados com sucesso. A tabela hash extensível funciona conforme o esperado.
 
 ## ✅ Checklist de Requisitos
 
-- [] A visualização interativa da Tabela Hash Extensível foi criada?
+- [✅] A visualização interativa da Tabela Hash Extensível foi criada?
 - [] Há um vídeo de até 2 minutos demonstrando o uso da visualização?
-- [] O trabalho está funcionando corretamente?
-- [] O trabalho está completo?
+- [✅] O trabalho está funcionando corretamente?
+- [✅] O trabalho está completo?
 - [✅] O trabalho é original e não a cópia de um trabalho de um colega?
 
 ## 📎 Observações Finais
