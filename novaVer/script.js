@@ -126,24 +126,43 @@ class Tabela {
 
 let tabela = null;
 
-function criarTabela ()
-{
-    tabela = new Tabela (window.prompt ("Insira a capacidade por bucket: "));
-    console.log ("Tabela criada com capacidade " + tabela.capacidade);
+function criarTabela() {
+    if (tabela !== null) {
+        const confirmar = window.confirm("Já existe uma tabela criada. Deseja criar uma nova e descartar a atual?");
+        if (!confirmar) {
+            console.log("Criação de nova tabela cancelada.");
+            return;
+        }
+    }
+
+    const capacidade = parseInt(window.prompt("Insira a capacidade por bucket: "), 10);
+    if (isNaN(capacidade) || capacidade <= 0) {
+        window.alert("Capacidade inválida. A tabela não foi criada.");
+        return;
+    }
+
+    tabela = new Tabela(capacidade);
+    console.log("Nova tabela criada com capacidade " + tabela.capacidade);
+    window.alert("Nova tabela criada com sucesso!");
 }
 
-function adicionarNaTabela ()
-{
-    if (tabela != null)
-    {
-        valor = window.prompt ("Valor a ser inserido: ");
-        tabela.inserir (valor);
-        console.log ("Valor inserido: " + valor);
-    }
-    else 
-    {
-        console.log ("Tabela inexistente");
-        window.alert ("Tabela inexistente");
+function adicionarNaTabela() {
+    if (tabela != null) {
+        let valor = window.prompt("Valor a ser inserido:");
+
+        // Verificação de valor nulo, vazio ou não numérico
+        if (valor === null || valor.trim() === "" || isNaN(valor)) {
+            window.alert("Por favor, insira um valor numérico válido.");
+            console.log("Valor inválido inserido. Operação cancelada.");
+            return;
+        }
+
+        valor = parseInt(valor, 10);
+        tabela.inserir(valor);
+        console.log("Valor inserido: " + valor);
+    } else {
+        console.log("Tabela inexistente");
+        window.alert("Tabela inexistente");
     }
 }
 
