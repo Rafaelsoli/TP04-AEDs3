@@ -181,7 +181,7 @@ function exibirDeFormaBurra ()
             saida += `<p class='tupla'> <span class="dir">Dir[${i.toString(2).padStart(tabela.p, '0')}]</span>` +
             
             
-            ` → <span class="bucket">${JSON.stringify(bucket.itens)}</span></p>`;
+            ` → <span class="bucket">` + bucket.itens.map(item => `<span class="item">${item}</span>`).join(' ') + `</span> <span class="prof">(p=${bucket.profundidade})</span></p>`;
         });
 
         // Algo a ser anexado depois da tabela

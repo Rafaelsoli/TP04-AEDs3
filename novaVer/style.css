@@ -96,3 +96,37 @@ body {
     font-size: 14px;
     margin-left: 8px;
 }
+
+/* esse item aqui eh os numeros dentro dos buckets*/
+.item {
+  background-color: #fff;
+  border: 2px solid #ab3232;
+  color: #ab3232;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 4px 4px;
+  display: inline-block;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.item:hover {
+  transform: scale(1.08);
+  background-color: #fcecec;
+}
+
+/* esse prof aqui eh profundidade local (TA MEIO FEINHO, SE QUISEREM MUDAR)*/
+.prof {
+    font-size: 0.9em;
+    color: black;
+    margin-left: 8px;
+    padding: 2px 6px;
+    background-color: #e3e3e3;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: sans-serif;
+    display: inline-block;
+}
