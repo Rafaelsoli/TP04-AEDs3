@@ -36,6 +36,12 @@ class Tabela {
     }
 
     inserir(valor) {
+        if (this.buscar(valor)) {
+            console.log(`Valor ${valor} já existe na tabela. Não será inserido novamente.`);
+            window.alert(`Valor ${valor} já está na tabela!`);
+            return;
+        }
+
         let indice = this.hash(valor);
         let bucket = this.diretorio[indice];
 
