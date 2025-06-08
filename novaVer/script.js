@@ -1,0 +1,142 @@
+//////////////////////////////////////////////////////////////////////
+
+class Bucket {
+    constructor(profundidadeLocal, capacidade = 2) {
+        this.profundidade = profundidadeLocal;
+        this.capacidade = capacidade;
+        this.itens = [];
+    }
+
+    cheio() {
+        return this.itens.length >= this.capacidade;
+    }
+
+    inserir(valor) {
+        this.itens.push(valor);
+    }
+
+    contem(valor) {
+        return this.itens.includes(valor);
+    }
+
+    remover(valor) {
+        this.itens = this.itens.filter(v => v !== valor);
+    }
+}
+
+class Tabela {
+    constructor(capacidadePorBucket = 2) {
+        this.p = 1; // profundidade global
+        this.capacidade = capacidadePorBucket;
+        this.diretorio = [new Bucket(1, capacidadePorBucket), new Bucket(1, capacidadePorBucket)];
+    }
+
+    hash(valor) {
+        return valor & ((1 << this.p) - 1); // últimos p bits
+    }
+
+    inserir(valor) {
+        let indice = this.hash(valor);
+        let bucket = this.diretorio[indice];
+
+        if (!bucket.cheio()) {
+            bucket.inserir(valor);
+        } else {
+            this.dividirBucket(indice);
+            this.inserir(valor); // reinserir após divisão
+        }
+    }
+
+    dividirBucket(indice) {
+        const bucketAntigo = this.diretorio[indice];
+        const novaProfundidade = bucketAntigo.profundidade + 1;
+
+        // Se a nova profundidade local ultrapassar a global, dobramos o diretório
+        if (novaProfundidade > this.p) {
+            this.dobrarDiretorio();
+        }
+
+        // Criamos dois novos buckets
+        const bucketNovo = new Bucket(novaProfundidade, this.capacidade);
+        const bucketReutilizado = new Bucket(novaProfundidade, this.capacidade);
+
+        // Guardamos os itens antigos
+        const itensAntigos = bucketAntigo.itens;
+        bucketAntigo.itens = [];
+
+        // Atualizamos profundidade local
+        bucketReutilizado.profundidade = novaProfundidade;
+        bucketNovo.profundidade = novaProfundidade;
+
+        // Atualizamos o diretório: redistribui referências
+        const bitmask = (1 << novaProfundidade) - 1;
+
+        for (let i = 0; i < this.diretorio.length; i++) {
+            if ((i & ((1 << (novaProfundidade - 1)) - 1)) === (indice & ((1 << (novaProfundidade - 1)) - 1))) {
+                // Se o bit mais significativo novo for 0, fica no antigo
+                if (((i >> (novaProfundidade - 1)) & 1) === 0) {
+                    this.diretorio[i] = bucketReutilizado;
+                } else {
+                    this.diretorio[i] = bucketNovo;
+                }
+            }
+        }
+
+        // Reinserir os elementos no bucket certo
+        for (let valor of itensAntigos) {
+            const novoIndice = this.hash(valor);
+            this.diretorio[novoIndice].inserir(valor);
+        }
+    }
+
+
+    dobrarDiretorio() {
+        this.p++;
+        let tamanhoAntigo = this.diretorio.length;
+        for (let i = 0; i < tamanhoAntigo; i++) {
+            this.diretorio.push(this.diretorio[i]);
+        }
+    }
+
+    buscar(valor) {
+        let indice = this.hash(valor);
+        return this.diretorio[indice].contem(valor);
+    }
+
+    remover(valor) {
+        let indice = this.hash(valor);
+        this.diretorio[indice].remover(valor);
+    }
+
+    mostrar() {
+        console.log("Profundidade global:", this.p);
+        this.diretorio.forEach((bucket, i) => {
+            console.log(`Dir[${i.toString(2).padStart(this.p, '0')}] →`, bucket.itens);
+        });
+    }
+}
+
+//////////////////////////////////
+
+let tabela = null;
+
+function criarTabela ()
+{
+    tabela = new Tabela (window.prompt ("Insira a capacidade por bucket: "));
+    console.log ("Tabela criada com capacidade " + tabela.capacidade);
+}
+
+function adicionarNaTabela ()
+{
+    if (tabela != null)
+    {
+        valor = window.prompt ("Valor a ser inserido: ");
+        tabela.inserir (valor);
+        console.log ("Valor inserido: " + valor);
+    }
+    else 
+    {
+        console.log ("Tabela inexistente");
+        window.alert ("Tabela inexistente");
+    }
+}
