@@ -140,3 +140,25 @@ function adicionarNaTabela ()
         window.alert ("Tabela inexistente");
     }
 }
+
+function exibirDeFormaBurra ()
+{
+    if (tabela != null)
+    {
+        tabela.mostrar ();
+
+        let saida = "Profundidade global: " + tabela.p + "\n";
+
+        tabela.diretorio.forEach((bucket, i) => 
+        {
+            saida += `Dir[${i.toString(2).padStart(tabela.p, '0')}] → ${JSON.stringify(bucket.itens)}\n`;
+        });
+
+        document.getElementById("saida").innerText = saida;
+    }
+    else 
+    {
+        console.log ("Tabela inexistente");
+        window.alert ("Tabela inexistente");
+    }
+}
