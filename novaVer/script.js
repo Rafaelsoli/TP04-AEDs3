@@ -178,11 +178,17 @@ function exibirDeFormaBurra ()
 
         tabela.diretorio.forEach((bucket, i) => 
         {
-            // Tabela em si
+            let ocupacao = bucket.itens.length / bucket.capacidade;
+            let corClasse = "verde";
+            if (ocupacao >= 1) {
+                corClasse = "vermelho";
+            } else if (ocupacao >= 0.5) {
+                corClasse = "amarelo";
+            }
+
             saida += `<p class='tupla'> <span class="dir">Dir[${i.toString(2).padStart(tabela.p, '0')}]</span>` +
-            
-            // esses daqui são os numeros q aparecem dentro dos buckets
-            ` → <span class="bucket">` + bucket.itens.map(item => `<span class="item">${item}</span>`).join(' ') + `</span> <span class="prof">(p=${bucket.profundidade}) (${bucket.itens.length}/${bucket.capacidade})</span></p>`;
+                ` → <span class="bucket ${corClasse}">` + bucket.itens.map(item => `<span class="item ${corClasse}">${item}</span>`).join(' ') +
+                `</span> <span class="prof">(p=${bucket.profundidade}) (${bucket.itens.length}/${bucket.capacidade})</span></p>`;
 
         });
 

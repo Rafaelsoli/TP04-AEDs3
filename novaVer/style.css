@@ -88,8 +88,7 @@ body {
     color: #34495e;
 }
 
-.bucket{
-    background-color: #ba3737;
+.bucket {
     color: black;
     padding: 4px 8px;
     border-radius: 6px;
@@ -97,11 +96,21 @@ body {
     margin-left: 8px;
 }
 
+.bucket.verde {
+    background-color: #4caf50; 
+}
+
+.bucket.amarelo {
+    background-color: #ffc107; 
+}
+
+.bucket.vermelho {
+    background-color: #f44336; 
+}
+
 /* esse item aqui eh os numeros dentro dos buckets*/
 .item {
-  background-color: #fff;
-  border: 2px solid #ab3232;
-  color: #ab3232;
+  border: 2px solid;
   padding: 4px 10px;
   border-radius: 16px;
   font-weight: bold;
@@ -113,6 +122,23 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
+.item.verde {
+  background-color: #e0ffe0;
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.item.amarelo {
+  background-color: #fff8e1;
+  border-color: #f9a825;
+  color: #f9a825;
+}
+
+.item.vermelho {
+  background-color: #fcecec;
+  border-color: #ab3232;
+  color: #ab3232;
+}
 .item:hover {
   transform: scale(1.08);
   background-color: #fcecec;
@@ -137,7 +163,7 @@ body {
     font-size: 1em;
     color: #333;
     font-family: sans-serif;
-    background: #dfdddd;
+    background: #dad9d9;
     padding: 8px 12px;
     border-left: 4px solid #666;
     border-radius: 6px;
