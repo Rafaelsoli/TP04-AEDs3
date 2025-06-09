@@ -180,12 +180,12 @@ function exibirDeFormaBurra ()
             // Tabela em si
             saida += `<p class='tupla'> <span class="dir">Dir[${i.toString(2).padStart(tabela.p, '0')}]</span>` +
             
-            
+            // esses daqui são os numeros q aparecem dentro dos buckets
             ` → <span class="bucket">` + bucket.itens.map(item => `<span class="item">${item}</span>`).join(' ') + `</span> <span class="prof">(p=${bucket.profundidade})</span></p>`;
         });
 
-        // Algo a ser anexado depois da tabela
-        saida += "";
+        // função hash visivel textualmente depois da tabela
+        saida += `<p id="hash-func">Função hash: <strong>h(x) = x % 2<sup>${tabela.p}</sup> = x % ${2 ** tabela.p}</strong></p>`;
 
         document.getElementById("saida").innerHTML = saida;
     }
@@ -195,3 +195,4 @@ function exibirDeFormaBurra ()
         window.alert ("Tabela inexistente");
     }
 }
+

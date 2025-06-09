@@ -130,3 +130,15 @@ body {
     font-family: sans-serif;
     display: inline-block;
 }
+
+/* textinho de exibição de função hash */
+#hash-func {
+    margin-top: 12px;
+    font-size: 1em;
+    color: #333;
+    font-family: sans-serif;
+    background: #dfdddd;
+    padding: 8px 12px;
+    border-left: 4px solid #666;
+    border-radius: 6px;
+}
