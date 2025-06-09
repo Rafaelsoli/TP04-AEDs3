@@ -204,3 +204,15 @@ function exibirDeFormaBurra ()
     }
 }
 
+function alternarTema() {
+    const temaAtual = document.documentElement.getAttribute("data-theme");
+    const novoTema = temaAtual === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", novoTema);
+    localStorage.setItem("temaPreferido", novoTema);
+  }
+
+  // Aplicar tema salvo
+  window.onload = () => {
+    const temaSalvo = localStorage.getItem("temaPreferido") || "light";
+    document.documentElement.setAttribute("data-theme", temaSalvo);
+  };

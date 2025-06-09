@@ -1,15 +1,60 @@
+:root {
+  --bg-body: #ffffff;
+  --text-color: #000000;
+  --bucket-verde: #4caf50;
+  --bucket-amarelo: #ffc107;
+  --bucket-vermelho: #f44336;
+  --item-verde-bg: #e0ffe0;
+  --item-verde-border: #2e7d32;
+  --item-verde-color: #2e7d32;
+  --item-amarelo-bg: #fff8e1;
+  --item-amarelo-border: #f9a825;
+  --item-amarelo-color: #f9a825;
+  --item-vermelho-bg: #fcecec;
+  --item-vermelho-border: #ab3232;
+  --item-vermelho-color: #ab3232;
+  --prof-bg: #e3e3e3;
+  --prof-color: #000;
+  --hash-bg: #dad9d9;
+  --hash-color: #333;
+}
+
+[data-theme="dark"] {
+  --bg-body: #121212;
+  --text-color: #e0e0e0;
+  --bucket-verde: #388e3c;
+  --bucket-amarelo: #fbc02d;
+  --bucket-vermelho: #e53935;
+  --item-verde-bg: #2e7d32;
+  --item-verde-border: #81c784;
+  --item-verde-color: #e8f5e9;
+  --item-amarelo-bg: #fbc02d;
+  --item-amarelo-border: #fff59d;
+  --item-amarelo-color: #fffde7;
+  --item-vermelho-bg: #e57373;
+  --item-vermelho-border: #ef9a9a;
+  --item-vermelho-color: #ffebee;
+  --prof-bg: #424242;
+  --prof-color: #fff;
+  --hash-bg: #333;
+  --hash-color: #fff;
+}
 
 body {
-  background-image: url('https://r4.wallpaperflare.com/wallpaper/903/77/147/digital-art-horizon-japanese-landscape-wallpaper-195028cd714aad5bd617c8df4041a65d.jpg'); /* gradiente azul */
+  background-image: url('https://r4.wallpaperflare.com/wallpaper/903/77/147/digital-art-horizon-japanese-landscape-wallpaper-195028cd714aad5bd617c8df4041a65d.jpg');
+  background-color: var(--bg-body);
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .titulo {
   text-align: center;
-    font-size: 3.0em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #e8ebee;
-    font-family: 'Segoe UI', sans-serif;
+  font-size: 3.0em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-color);
 }
 
 .botoes-container {
@@ -19,27 +64,25 @@ body {
   margin-top: 30px;
 }
 
-
 .botao-estilizado {
-  background-color: #ab3232;
-  color: white;
+  background-color: var(--prof-bg);
+  color: var(--hash-color);
   border: none;
   padding: 12px 24px;
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .botao-estilizado:hover {
-  background-color: #9c2b2b;
   transform: scale(1.05);
 }
 
 .botao-estilizado:active {
   transform: scale(0.95);
 }
-
 
 .tabela-burra {
   display: flex;
@@ -48,67 +91,67 @@ body {
 }
 
 .saida-burra {
-  background-color: #f9f9f9;
+  background-color: var(--prof-bg);
   padding: 20px;
   border-radius: 12px;
   width: fit-content;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Courier New', Courier, monospace;
-  color: #333;
+  color: var(--hash-color);
   text-align: left;
   white-space: pre-wrap;
   border: 1px solid #ddd;
 }
 
 #prof {
-    text-align: center;
-    font-size: 1.6em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 0px;
-    color: #2c3e50;
-    font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  color: var(--prof-color);
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .tupla {
-    background-color: #fefefe;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
-    width: fit-content;
-    min-width: 280px;
-    text-align: left;
+  background-color: var(--prof-bg);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  width: fit-content;
+  min-width: 280px;
+  text-align: left;
 }
 
 .dir {
-    font-weight: bold;
-    color: #34495e;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 .bucket {
-    color: black;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 14px;
-    margin-left: 8px;
+  color: var(--text-color);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-left: 8px;
 }
 
 .bucket.verde {
-    background-color: #4caf50; 
+  background-color: var(--bucket-verde);
 }
 
 .bucket.amarelo {
-    background-color: #ffc107; 
+  background-color: var(--bucket-amarelo);
 }
 
 .bucket.vermelho {
-    background-color: #f44336; 
+  background-color: var(--bucket-vermelho);
 }
 
-/* esse item aqui eh os numeros dentro dos buckets*/
+/* números dentro dos buckets */
 .item {
   border: 2px solid;
   padding: 4px 10px;
@@ -123,48 +166,65 @@ body {
 }
 
 .item.verde {
-  background-color: #e0ffe0;
-  border-color: #2e7d32;
-  color: #2e7d32;
+  background-color: var(--prof-bg);
+  border-color: var(--item-verde-border);
+  color: var(--item-verde-color);
 }
 
 .item.amarelo {
-  background-color: #fff8e1;
-  border-color: #f9a825;
-  color: #f9a825;
+  background-color: var(--prof-bg);
+  border-color: var(--item-amarelo-border);
+  color: var(--item-amarelo-color);
 }
 
 .item.vermelho {
-  background-color: #fcecec;
-  border-color: #ab3232;
-  color: #ab3232;
+  background-color: var(--prof-bg);
+  border-color: var(--item-vermelho-border);
+  color: var(--item-vermelho-color);
 }
+
 .item:hover {
   transform: scale(1.08);
-  background-color: #fcecec;
+  background-color: var(--prof-bg);
 }
 
-/* esse prof aqui eh profundidade local (TA MEIO FEINHO, SE QUISEREM MUDAR)*/
+/* profundidade local */
 .prof {
-    font-size: 0.9em;
-    color: black;
-    margin-left: 8px;
-    padding: 2px 6px;
-    background-color: #e3e3e3;
-    border-radius: 6px;
-    font-weight: bold;
-    font-family: sans-serif;
-    display: inline-block;
+  font-size: 0.9em;
+  color: var(--prof-color);
+  margin-left: 8px;
+  padding: 2px 6px;
+  background-color: var(--prof-bg);
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: sans-serif;
+  display: inline-block;
 }
 
-/* textinho de exibição de função hash */
+/* exibição função hash */
 #hash-func {
-    margin-top: 12px;
-    font-size: 1em;
-    color: #333;
-    font-family: sans-serif;
-    background: #dad9d9;
-    padding: 8px 12px;
-    border-left: 4px solid #666;
-    border-radius: 6px;
+  margin-top: 12px;
+  font-size: 1em;
+  color: var(--hash-color);
+  font-family: sans-serif;
+  background: var(--hash-bg);
+  padding: 8px 12px;
+  border-left: 4px solid #666;
+  border-radius: 6px;
+}
+
+/* botão alternância de tema */
+.botao-temas {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #444;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 999;
 }
