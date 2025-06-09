@@ -31,8 +31,9 @@ class Tabela {
         this.diretorio = [new Bucket(1, capacidadePorBucket), new Bucket(1, capacidadePorBucket)];
     }
 
-    hash(valor) {
-        return valor & ((1 << this.p) - 1); // últimos p bits
+    hash(valor) 
+    {
+        return valor % (2 ** this.p);
     }
 
     inserir(valor) {
