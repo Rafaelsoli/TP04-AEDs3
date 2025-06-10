@@ -17,6 +17,7 @@
   --prof-color: #000;
   --hash-bg: #dad9d9;
   --hash-color: #333;
+  --bg: url(https://r4.wallpaperflare.com/wallpaper/903/77/147/digital-art-horizon-japanese-landscape-wallpaper-195028cd714aad5bd617c8df4041a65d.jpg);
 }
 
 [data-theme="dark"] {
@@ -38,10 +39,11 @@
   --prof-color: #fff;
   --hash-bg: #333;
   --hash-color: #fff;
+  --bg: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.com%2Fimages%2Fhd%2Fdark-cherry-blossom-u878yljgd52quzx5.jpg&f=1&nofb=1&ipt=607ca9228929918de1ce1c29e423c30a7a5ab572f481fa4cdc4bcdfd03965120);
 }
-
+  
 body {
-  background-image: url('https://r4.wallpaperflare.com/wallpaper/903/77/147/digital-art-horizon-japanese-landscape-wallpaper-195028cd714aad5bd617c8df4041a65d.jpg');
+  background-image: var(--bg);
   background-color: var(--bg-body);
   color: var(--text-color);
   font-family: 'Segoe UI', sans-serif;
