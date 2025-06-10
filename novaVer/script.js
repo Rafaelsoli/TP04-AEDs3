@@ -31,15 +31,15 @@ class Tabela {
         this.diretorio = [new Bucket(1, capacidadePorBucket), new Bucket(1, capacidadePorBucket)];
     }
 
-    hash(valor) 
-    {
-        return valor % (2 ** this.p);
+    hash(valor) {
+        return valor & ((1 << this.p) - 1); // últimos p bits
     }
 
     inserir(valor) {
         if (this.buscar(valor)) {
             console.log(`Valor ${valor} já existe na tabela. Não será inserido novamente.`);
-            exibir_alerta_erro (`Valor ${valor} já está na tabela!`, "Alerta!");
+
+            Swal.fire (`Valor ${valor} já está na tabela!`, "", "warning");
             return;
         }
 
@@ -125,51 +125,93 @@ class Tabela {
 
 //////////////////////////////////
 
+// Pede input ao usuário usando SweetAlert2
+function solicitarInput (mensagem, placeholder = "", tipo = "text") 
+{
+    return Swal.fire ({
+        title: mensagem,
+        input: tipo,
+        inputPlaceholder: placeholder,
+        showCancelButton: true,
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancelar",
+        allowOutsideClick: false,
+        allowEscapeKey: false
+    }).then (resultado => 
+    {
+        console.log("Resultado do Swal:", resultado);
+        if (resultado.isConfirmed) 
+        {
+            return resultado.value;
+        }
+
+        return null;
+    });
+}
+
+
+//////////////////////////////////
+
 let tabela = null;
 
-async function criarTabela() {
-    if (tabela !== null) {
-        const confirmar = await exibir_confirmar("Já existe uma tabela criada. Deseja criar uma nova e descartar a atual?");
-        if (!confirmar) {
+async function criarTabela () 
+{
+    if (tabela !== null) 
+    {
+        const confirmar = window.confirm("Já existe uma tabela criada. Deseja criar uma nova e descartar a atual?");
+        if (!confirmar) 
+        {
             console.log("Criação de nova tabela cancelada.");
             return;
         }
     }
 
-    const capacidade = parseInt(await exibir_input ("Insira a capacidade por bucket: "), 10);
+    const resposta = await solicitarInput ("Insira a capacidade por bucket:");
+
+    if (resposta === null)
     {
-        if (isNaN(capacidade) || capacidade <= 0) {
-            exibir_alerta_erro("Capacidade inválida. A tabela não foi criada.", "Erro!");
-            return;
-        }
-
-        tabela = new Tabela(capacidade);
-        console.log("Nova tabela criada com capacidade " + tabela.capacidade);
-        // 'window.alert("Nova tabela criada com sucesso!");
-
-        exibirDeFormaBurra (); 
+        console.log ("Usuário cancelou o input.");
+        return;
     }
+
+    if (resposta.trim() === "" || isNaN(resposta))
+    {
+        await Swal.fire ("Capacidade inválida. A tabela não foi criada.", "", "error");
+        return;
+    }
+
+    const capacidade = parseInt(resposta, 10);
+
+    if (capacidade <= 0)
+    {
+        await Swal.fire ("Capacidade inválida. A tabela não foi criada.", "", "error");
+        return;
+    }
+
+    tabela = new Tabela(capacidade);
+    console.log("Nova tabela criada com capacidade " + tabela.capacidade);
+    await Swal.fire ("Nova tabela criada com sucesso!", "", "success");
 }
+
+
 
 async function adicionarNaTabela() {
     if (tabela != null) {
-        let valor = parseInt(await exibir_input ("Valor a ser inserido: "), 10);
-        {
-            // Verificação de valor nulo, vazio ou não numérico
-            if (valor === null || isNaN(valor)) {
-                exibir_alerta_erro("Por favor, insira um valor numérico válido.", "Erro!");
-                console.log("Valor inválido inserido. Operação cancelada.");
-                return;
-            }
+        let valor = await solicitarInput ("Valor a ser inserido:");
 
-            valor = parseInt(valor, 10);
-            tabela.inserir(valor);
-            console.log("Valor inserido: " + valor);
-            exibirDeFormaBurra ();
+        // Verificação de valor nulo, vazio ou não numérico
+        if (valor === null || valor.trim() === "" || isNaN(valor)) {
+            Swal.fire ("Por favor, insira um valor numérico válido.", "", "warning");
+            console.log("Valor inválido inserido. Operação cancelada.");
+            return;
         }
+
+        valor = parseInt(valor, 10);
+        tabela.inserir(valor);
+        console.log("Valor inserido: " + valor);
     } else {
         console.log("Tabela inexistente");
-        exibir_alerta_erro("Tabela inexistente", "Erro!");
+        Swal.fire ("Tabela inexistente", "", "error");
     }
 }
 
@@ -184,41 +226,21 @@ function exibirDeFormaBurra ()
 
         tabela.diretorio.forEach((bucket, i) => 
         {
-            let ocupacao = bucket.itens.length / bucket.capacidade;
-            let corClasse = "verde";
-            if (ocupacao >= 1) {
-                corClasse = "vermelho";
-            } else if (ocupacao >= 0.5) {
-                corClasse = "amarelo";
-            }
-
+            // Tabela em si
             saida += `<p class='tupla'> <span class="dir">Dir[${i.toString(2).padStart(tabela.p, '0')}]</span>` +
-                ` → <span class="bucket ${corClasse}">` + bucket.itens.map(item => `<span class="item ${corClasse}">${item}</span>`).join(' ') +
-                `</span> <span class="prof">(p=${bucket.profundidade}) (${bucket.itens.length}/${bucket.capacidade})</span></p>`;
-
+            
+            
+            ` → <span class="bucket">${JSON.stringify(bucket.itens)}</span></p>`;
         });
 
-        // função hash visivel textualmente depois da tabela
-        saida += `<p id="hash-func">Função hash: <strong>h(x) = x % 2<sup>${tabela.p}</sup> = x % ${2 ** tabela.p}</strong></p>`;
+        // Algo a ser anexado depois da tabela
+        saida += "";
 
         document.getElementById("saida").innerHTML = saida;
     }
     else 
     {
         console.log ("Tabela inexistente");
-        exibir_alerta_erro ("Tabela inexistente", "Erro!");
+        Swal.fire  ("Tabela inexistente", "", "error");
     }
 }
-
-function alternarTema() {
-    const temaAtual = document.documentElement.getAttribute("data-theme");
-    const novoTema = temaAtual === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", novoTema);
-    localStorage.setItem("temaPreferido", novoTema);
-  }
-
-  // Aplicar tema salvo
-  window.onload = () => {
-    const temaSalvo = localStorage.getItem("temaPreferido") || "light";
-    document.documentElement.setAttribute("data-theme", temaSalvo);
-  };
