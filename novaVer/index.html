@@ -8,15 +8,20 @@
 </head>
 <body>
     <h1 class="titulo">Tabela Hash</h1>
+    <button class="botao-temas" onclick="alternarTema()">🌓 Tema</button>
     <div class="botoes-container">
-        <button class="botao-estilizado" onclick="criarTabela (); exibirDeFormaBurra ();">Crie a tabela</button>
-        <button class="botao-estilizado" onclick="adicionarNaTabela (); exibirDeFormaBurra ();">Adicionar a tabela</button>
+        <button class="botao-estilizado" onclick="criarTabela ();">Criar Tabela ✚</button>
+        <button class="botao-estilizado" onclick="adicionarNaTabela ();">Adicionar Valor ✚</button>
     </div>
 
     <div class="tabela-burra">
         <div id="saida" class="saida-burra"></div>
     </div>
-    <pre id="saida"></pre>
+
+    <pre id="saida"></pre>    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="alertas.js"> </script>
     <script src="script.js"> </script>
 </body>
 </html>

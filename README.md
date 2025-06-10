@@ -37,7 +37,7 @@
 ## ✅ Checklist de Requisitos
 
 - [✅] A visualização interativa da Tabela Hash Extensível foi criada?
-- [✅] Há um vídeo de até 2 minutos demonstrando o uso da visualização?
+- [] Há um vídeo de até 2 minutos demonstrando o uso da visualização?
 - [✅] O trabalho está funcionando corretamente?
 - [✅] O trabalho está completo?
 - [✅] O trabalho é original e não a cópia de um trabalho de um colega?
