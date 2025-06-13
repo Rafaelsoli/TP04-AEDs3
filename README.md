@@ -18,6 +18,17 @@
   
 ## 🧱 Estrutura do Projeto
 
+📦 raiz/
+├── 📁 novaVer/
+│ ├── 📄 index.html → Interface principal da aplicação
+│ ├── 🎨 style.css → Estilos visuais da aplicação
+│ ├── ⚙️ script.js → Lógica da tabela hash extensível
+│ └── 🚨 alertas.js → Alertas e mensagens auxiliares
+│
+├── 📝 readme.md → Documentação do projeto (você está aqui!)
+├── 💬 commitar.bat → Script para facilitar commits no Git
+├── 📜 license → Licença de uso do projeto
+└── 🎥 video.mp4 → Demonstração da aplicação em vídeo
 
 
 ## 🧪 Experiência
@@ -44,3 +55,17 @@
 
   
 ## 📎 Observações Finais
+>A construção deste projeto foi um exercício desafiador e gratificante. A ideia principal era transformar o conceito da **Tabela Hash Extensível** em uma **experiência visual clara e interativa**, acessível diretamente no navegador.
+
+>**O maior desafio foi encontrar uma forma de visualização que fosse, ao mesmo tempo, intuitiva e fiel ao funcionamento interno da estrutura.** A representação de diretórios binários apontando para buckets, com profundidades locais variáveis e duplicações visuais, >exigiu bastante tentativa e erro até atingir uma interface limpa, funcional e responsiva.
+
+>Optou-se por usar apenas **HTML, CSS e JavaScript puro**, tanto para reforçar os fundamentos quanto para facilitar o entendimento do código por estudantes e curiosos.
+
+Além disso:
+- A **interação direta** com o usuário (inserindo números manualmente) simula bem a dinâmica dos dados em uma tabela real.
+- O visual com buckets agrupados e cores suaves visa transmitir as mudanças estruturais de forma didática e sem poluição visual.
+- A **profundidade global** e as **divisões de cestos** foram tratadas com cuidado para refletirem as regras da técnica de forma precisa.
+
+📚 O projeto foi inspirado na versão em Java do Prof. Marcos Kutova, mas aqui foi completamente adaptado para o ambiente web, com foco em aprendizado visual.
+
+
