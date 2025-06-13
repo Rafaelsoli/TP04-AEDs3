@@ -18,6 +18,7 @@
   
 ## 🧱 Estrutura do Projeto
 
+```
 📦 raiz/
 ├── 📁 novaVer/
 │ ├── 📄 index.html → Interface principal da aplicação
@@ -29,6 +30,8 @@
 ├── 💬 commitar.bat → Script para facilitar commits no Git
 ├── 📜 license → Licença de uso do projeto
 └── 🎥 video.mp4 → Demonstração da aplicação em vídeo
+```
+
 
 
 ## 🧪 Experiência
